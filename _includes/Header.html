@@ -1,0 +1,53 @@
+<!-- Header.html: La barra de navegación superior con mi nombre (y acceso rápido al home), redes sociales y el Switch Dark/Light Mode. -->
+<div id="header-wrapper" class="fixed top-0 left-0 right-0 z-50 transition-transform duration-500">
+<header class="flex items-center justify-between border-b border-black/5 dark:border-white/5 bg-background-light/80 dark:bg-[#101622]/80 backdrop-blur-md px-4 py-3 md:px-10 lg:px-40 transition-all duration-300">
+    
+    <!-- LADO IZQUIERDO: LOGO + NOMBRE -->
+    <div class="flex items-center min-w-0"> 
+        <div class="group flex items-center gap-2 md:gap-3 cursor-pointer shrink-0" onclick="goHome()">
+            
+            <!-- CONTENEDOR DEL LOGOz -->
+            <div class="flex h-7 w-9 md:h-10 md:w-12 items-center justify-center transition-transform group-hover:scale-110 shrink-0">
+                <svg 
+                    id="Capa_1" 
+                    data-name="Capa 1" 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 1872.22 1135.78"
+                    class="w-full h-full fill-current text-slate-900 dark:text-white group-hover:text-primary transition-colors duration-300"
+                >
+                  <path d="M1858.24,592.56c-1.42-2.09-4.03-3.03-6.45-2.29-67.61,20.65-123.7,54.42-198.48,69.12-135.53,26.65-159.03-37.84-219.69-133.63-86.99-137.37-191.31-82.55-292.58,4.18-5.69,4.87-12.65,11.36-20.51,18.89-36.1,29.01-68.47,59.25-96.38,90.69-15.57,13.14-30.29,24.16-42.68,30.8-4.39,2.35-9.83,0-11.15-4.81-15.32-55.82-13.81-97.18-11.64-157.97.33-9.39.83-19.24,1.43-29.43,178.12-61.5,352.36-110.77,486.38-148.24,58.5-16.35,121.31-28.71,174.31-58.91h-.02c-48.69-7.5-85-1.37-133.52,4.46-136.82,16.44-323.82,50.48-519.34,101.87,8.14-93.97,17.34-195.94,10.39-265.24-8.02-79.92-67.87-139.22-145.24-99.26-93.38,48.23-251.55,381.16-303.52,486.44-4.79,9.71-9.57,19.59-14.36,29.6-205.57,87.63-381.25,196.75-468.55,327.04-54.68,81.61-77.73,200.86,24.21,258.27,126.67,71.33,292.04-49.03,376.88-138.97,106.71-113.13,174.24-251.16,237.18-391.46,46.03-19.84,93.13-38.79,140.6-56.86,2.28,91.16,14.95,241.97,107.57,266.57-21.54,75.37-10.75,155.32,68.23,200.79,139.38,80.22,321.35-55.14,414.7-156.3,35.36-38.31,66.8-79.18,95.37-121.87,72.75,27.8,152.76,7.54,240.06-40.05,25.4-13.85,76.44-45.63,96.4-64.63l10.07-11.7c1.7-1.98,1.87-4.85.4-7.01-.02-.03-.04-.06-.06-.09ZM424.09,715.22c-5.25,9.57-10.57,18.96-15.97,28.09-43.84,74.15-160.28,231.05-256.71,234.47,5.21-27.44,45.45-79.04,56.15-91.14,54.59-61.76,129.39-118.86,216.53-171.44h0ZM826.86,417.13c-26.22,7.94-52.43,16.18-78.51,24.72,7.05-15.4,14.2-30.74,21.48-45.99,17.25-36.13,38.17-80.17,60.81-123.19-.86,48.48-2.5,100.61-3.78,144.46ZM1392.96,642.06s-.06.1-.08.15c-42.78,73.97-182,182.7-286.96,209.02-17.58,4.41-32.39-13.72-24.44-30.01,17.08-35,53.35-75.91,61.74-85.61,39.69-45.89,86.89-95.29,143.58-139.81,33.17-26.05,81.57-18.05,104.91,17.08.12.17.23.35.35.52,5.71,8.61,6.08,19.72.92,28.66Z"/>
+                </svg>
+            </div>
+
+            <!-- TEXTO RESPONSIVO -->
+            <h2 class="text-slate-900 dark:text-white text-[11px] xs:text-sm sm:text-base md:text-lg font-bold tracking-tight group-hover:text-primary transition-colors duration-300 font-display whitespace-nowrap">
+                Aaron Gallego Portfolio
+            </h2>
+        </div>
+    </div>
+
+    <!-- LADO DERECHO: SWITCH + LINKEDIN -->
+    <div class="flex gap-3 md:gap-6 items-center shrink-0">
+        <!-- Switch Dark/Light Mode -->
+        <label class="relative inline-flex items-center cursor-pointer group scale-90 md:scale-100">
+            <input type="checkbox" id="theme-switch" class="sr-only peer" checked>
+            <div class="absolute inset-0 rounded-full transition-opacity duration-700 ease-in-out opacity-0 group-hover:opacity-100 shadow-[0_0_20px_rgba(37,106,244,0.2)] dark:shadow-[0_0_25px_rgba(37,106,244,0.4)]"></div>
+            <div class="w-12 h-6 md:w-14 md:h-7 bg-slate-300 dark:bg-slate-700 rounded-full flex items-center justify-around px-1 relative z-10 shadow-inner transition-colors duration-300 peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:w-5 after:h-5 md:after:w-6 md:after:h-6 after:rounded-full after:transition-all after:duration-500 after:shadow-sm peer-checked:after:translate-x-6 md:peer-checked:after:translate-x-7">
+                <span class="material-symbols-outlined text-[14px] md:text-[16px] text-yellow-500 select-none z-0">light_mode</span>
+                <span class="material-symbols-outlined text-[14px] md:text-[16px] text-slate-400 select-none z-0">dark_mode</span>
+            </div>
+        </label>
+
+        <div class="h-6 w-px bg-black/10 dark:bg-white/10 mx-1 hidden sm:block"></div>
+
+        <!-- LinkedIn -->
+        <a aria-label="LinkedIn" target="_blank" class="group text-slate-600 dark:text-slate-300 transition-all duration-300 hover:scale-110" href="https://www.linkedin.com/in/aaron-gallego/">
+        <svg class="w-6 h-6" viewBox="0 0 24 24">
+            <path class="fill-current group-hover:text-primary transition-colors duration-300" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5z"/>
+            <path class="fill-background-light dark:fill-background-dark group-hover:fill-white transition-colors duration-300" d="M8 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
+    </a>
+    </div>
+</header>
+</div>
+

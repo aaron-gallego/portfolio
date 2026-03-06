@@ -1,0 +1,83 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aaron Gallego Portfolio</title>
+    <link rel="icon" type="image/png" href="/assets/img/home/favicon.png">
+    
+    <!-- Recursos externos -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#256af4",
+                        "secondary": "#ffae2c",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: { "display": ["Inter", "sans-serif"] }
+                },
+            },
+        }
+    </script>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display overflow-x-hidden transition-colors duration-300">
+    
+    {% include Header.html %}
+
+    <main class="relative min-h-[100dvh] flex flex-col pt-20 pb-24 md:pb-0">
+        <div class="layout-container flex flex-col items-center px-4 md:px-10 lg:px-40">
+            <div class="max-w-[1200px] w-full">
+                
+                <div id="home-view-wrapper" class="relative flex flex-col items-center">
+                    {% include Hero.html %}
+                    
+                    <div id="hero-nav-sticky" class="sticky top-[80px] z-40 flex flex-row justify-center gap-3 w-full max-w-[560px] px-4 mt-10 md:mt-16 pb-4 transition-all duration-500">
+                        <button onclick="showView('work')" id="btn-work" class="flex-1 h-11 flex items-center justify-center rounded-full font-bold transition-all duration-300 shadow-lg bg-[#FFAE2C] text-white shadow-[#FFAE2C]/30 border border-transparent hover:scale-105 active:scale-95 text-[12px] md:text-base">
+                            Mis proyectos
+                        </button>
+                        <button onclick="showView('about')" id="btn-about" class="flex-1 h-11 flex items-center justify-center rounded-full border border-black/10 dark:border-white/20 bg-slate-300/50 dark:bg-white/10 backdrop-blur-md text-slate-700 dark:text-white font-bold transition-all duration-300 hover:scale-105 active:scale-95 text-[12px] md:text-base">
+                            Sobre mí
+                        </button>
+                    </div>
+
+                    <div id="dynamic-content-home" class="min-h-[400px] w-full">
+                        <div id="view-work" class="view-transition">
+                            {% include Filters.html %}
+                            <section id="projects-grid" class="mb-24 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"></section>
+                        </div>
+                        <div id="view-about" class="hidden view-transition">
+                            {% include About.html %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenedores de Proyectos -->
+                <div id="view-project-testGO" class="hidden min-h-[600px] py-10">{% include Project_testGO.html %}</div>
+                <div id="view-project-Novateca" class="hidden min-h-[600px] py-10">{% include Project_Novateca.html %}</div>
+
+            </div>
+        </div>
+
+        <button id="btn-back-to-work" onclick="goToProjects()" class="fixed bottom-40 md:bottom-8 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-auto z-[60] bg-secondary text-white font-black text-[10px] uppercase tracking-widest py-4 md:px-8 rounded-full shadow-[0_20px_50px_rgba(255,174,44,0.3)] transition-all duration-500 translate-y-32 opacity-0 pointer-events-none hover:scale-110 active:scale-95">
+            Ver todos los proyectos
+        </button>
+
+        {% include Footer.html %}
+    </main>
+
+    <script src="/assets/js/scripts.js"></script>
+</body>
+</html>

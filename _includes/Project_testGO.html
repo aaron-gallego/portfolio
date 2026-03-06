@@ -1,0 +1,56 @@
+<div class="animate-fade-in text-slate-900 dark:text-white">
+    <!-- Portada -->
+    <section id="sec-portada" class="relative w-full mb-8">
+        <img data-tg="sec-portada" src="" class="w-full h-auto rounded-[2rem] md:rounded-[3.5rem] opacity-0 transition-opacity duration-500" onload="this.classList.remove('opacity-0')">
+    </section>
+
+    <!-- Nav interna -->
+    <nav class="sticky top-[80px] z-30 mb-8 flex justify-center w-full py-4">
+        <div id="tg-nav-scroll" class="flex overflow-x-auto no-scrollbar p-1.5 rounded-full border border-black/10 dark:border-white/10 bg-slate-100/95 dark:bg-[#101622]/95 backdrop-blur-xl shadow-lg">
+            <button onclick="tgScroll(this, 'sec-app-info')" data-sec="sec-app-info" class="tg-nav-btn px-5 py-2 text-[10px] font-black uppercase tracking-widest rounded-full text-white bg-secondary">Contexto</button>
+            <button onclick="tgScroll(this, 'sec-ui-group')" data-sec="sec-ui-group" class="tg-nav-btn px-5 py-2 text-[10px] font-black uppercase tracking-widest rounded-full text-slate-400">Mockups</button>
+        </div>
+    </nav>
+
+    <!-- Imágenes -->
+    <div class="flex flex-col gap-0 w-full max-w-7xl mx-auto">
+        <img data-tg="sec-app-info" src="" class="w-full h-auto">
+        <img data-tg="sec-design-process" src="" class="w-full h-auto">
+        <img data-tg="sec-ui-1" src="" class="w-full h-auto">
+    </div>
+</div>
+
+<script>
+    const tgImageMap = {
+        "sec-portada": "sec-portada_multi.webp",
+        "sec-app-info": { dark: "sec-app-info_mobDark.webp", light: "sec-app-info_mobLight.webp", multi: "sec-app-info_multi.webp" },
+        "sec-design-process": "sec-design-process_multi.webp",
+        "sec-ui-1": "sec-ui-1_multi.webp"
+    };
+
+    window.updateTgImages = function() {
+        const isDark = document.documentElement.classList.contains('dark');
+        const isMobile = window.innerWidth < 768;
+        const subfolder = isMobile ? "mobile" : "desktop";
+
+        document.querySelectorAll('img[data-tg]').forEach(img => {
+            const key = img.getAttribute('data-tg');
+            const data = tgImageMap[key];
+            let filename = "";
+
+            if (typeof data === "string") {
+                filename = data;
+            } else {
+                if (isMobile) {
+                    filename = isDark ? data.dark : data.light;
+                } else {
+                    // En tu desktop no tienes mobDark, usas dark/light
+                    filename = isDark ? data.dark.replace('mob', '') : data.light.replace('mob', '');
+                }
+            }
+            img.src = `/assets/img/testgo/${subfolder}/${filename}`;
+        });
+    }
+
+    window.initTgNav = () => window.updateTgImages();
+</script>

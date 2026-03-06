@@ -1,0 +1,436 @@
+<!-- About.html: El módulo que contiene toda mi información personal: Experiencia / Formación / Habilidades / Datos de interés. -->
+<div class="flex flex-col lg:flex-row gap-4 lg:gap-12 items-start w-full mb-10">    
+<!-- FILTROS DE NAVEGACIÓN -->
+<!-- About.html -->
+<aside class="w-full lg:w-72 flex-shrink-0 sticky top-[152px] lg:top-32 z-10 mt-8 transition-all duration-500">
+    <!-- CONTENEDOR: rounded-full en móvil, lg:rounded-3xl en desktop -->
+    <nav id="about-nav" class="relative flex flex-row lg:flex-col gap-1 p-1 rounded-full lg:rounded-3xl border border-black/10 dark:border-white/10 bg-slate-100/95 dark:bg-[#101622]/95 backdrop-blur-xl shadow-lg justify-between w-full overflow-hidden">
+        
+        <!-- PÍLDORA AZUL: Sin transición inicial para evitar el deslizamiento al cargar la vista -->
+        <div id="about-highlight" class="absolute bg-primary rounded-full shadow-lg shadow-primary/30 z-0"></div>
+
+        <!-- BOTONES: Siempre rounded-full para que el área de selección sea redonda -->
+        <button onclick="showAboutTab('exp')" data-tab="exp" class="about-tab-btn active-tab relative z-10 flex-1 lg:flex-none flex items-center justify-center lg:justify-start gap-3 px-1 lg:px-4 py-2.5 rounded-full text-[9px] sm:text-xs lg:text-sm font-bold transition-colors duration-300 hover:bg-primary/10 hover:text-primary">
+            <span class="material-symbols-outlined text-xl hidden lg:inline-block">work_history</span>
+            <span>Experiencia</span>
+        </button>
+
+        <button onclick="showAboutTab('edu')" data-tab="edu" class="about-tab-btn relative z-10 flex-1 lg:flex-none flex items-center justify-center lg:justify-start gap-3 px-1 lg:px-4 py-2.5 rounded-full text-[9px] sm:text-xs lg:text-sm font-bold text-slate-700 dark:text-slate-400 transition-colors duration-300 hover:bg-primary/10 hover:text-primary">
+            <span class="material-symbols-outlined text-xl hidden lg:inline-block">school</span>
+            <span>Educación</span>
+        </button>
+
+        <button onclick="showAboutTab('hab')" data-tab="hab" class="about-tab-btn relative z-10 flex-1 lg:flex-none flex items-center justify-center lg:justify-start gap-3 px-1 lg:px-4 py-2.5 rounded-full text-[9px] sm:text-xs lg:text-sm font-bold text-slate-700 dark:text-slate-400 transition-colors duration-300 hover:bg-primary/10 hover:text-primary">
+            <span class="material-symbols-outlined text-xl hidden lg:inline-block">bolt</span>
+            <span>Habilidades</span>
+        </button>
+
+        <button onclick="showAboutTab('dat')" data-tab="dat" class="about-tab-btn relative z-10 flex-1 lg:flex-none flex items-center justify-center lg:justify-start gap-3 px-1 lg:px-4 py-2.5 rounded-full text-[9px] sm:text-xs lg:text-sm font-bold text-slate-700 dark:text-slate-400 transition-colors duration-300 hover:bg-primary/10 hover:text-primary">
+            <span class="material-symbols-outlined text-xl hidden lg:inline-block">info</span>
+            <span>Interés</span>
+        </button>
+    </nav>
+</aside>
+
+
+    <!-- COLUMNA DE CONTENIDO -->
+    <!-- mt-4 para móvil y lg:mt-8 para mantener el alineado en desktop -->
+    <div class="flex-1 w-full mt-0 lg:mt-8">
+       
+<!-- 1. CABECERA: Información fija sobre mí -->
+        <div class="mb-10 animate-fade-in">
+            <h1 class="text-slate-900 dark:text-white text-2xl sm:text-3xl md:text-4xl font-black mb-2">
+                Sobre <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-400 to-indigo-400">mí</span>
+            </h1>
+            <p class="max-w-3xl text-[#0f172a] dark:text-slate-400 text-sm md:text-base leading-relaxed mb-4 font-medium">
+                Diseñador con amplia experiencia multidisciplinar, desde el diseño visual corporativo hasta el desarrollo UX/UI y la implementación de IA en procesos creativos.
+            </p>
+            <div class="h-1 w-16 bg-primary rounded-full"></div>
+        </div>
+
+<!-- 2. EXPERIENCIA: Información sobre mi experiencia profesional -->
+        <section id="content-exp" class="about-content animate-fade-in">
+            <h2 class="text-xl font-bold mb-8 flex items-center gap-3 text-secondary">
+                <span class="material-symbols-outlined text-3xl">work_history</span> Experiencia profesional
+            </h2>
+            <div class="border-l border-slate-200 dark:border-white/10 ml-3 space-y-10 pb-4">
+                <!-- Grocasa -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-primary ring-4 ring-background-light dark:ring-background-dark shadow-[0_0_15px_rgba(37,106,244,0.5)]"></div>
+                    <h3 class="text-lg font-bold dark:text-white">Grocasa</h3>
+                    <p class="text-blue-500 text-xs font-bold">2025 - Actualidad</p>
+                    <p class="mt-2 text-sm text-[#0f172a] dark:text-slate-300 font-medium">Diseñador Gráfico, Digital & UX/UI: Identidad corporativa, RRSS, prototipado de interfaces y Marketing</p>
+                </div>
+                <!-- Bertrandt Group -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white">Bertrandt Group</h3>
+                    <p class="text-slate-500 text-xs font-bold">2022 - 2025</p>
+                    <p class="mt-2 text-sm text-[#0f172a] dark:text-slate-300 font-medium">Diseñador UX/UI: Prototipado de interfaces para CUPRA y SEAT</p>
+                </div>
+                <!-- Valuexperience -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white">Valuexperience</h3>
+                    <p class="text-slate-500 text-xs font-bold">2021 - 2022</p>
+                    <p class="mt-2 text-sm text-[#0f172a] dark:text-slate-300 font-medium">Diseñador Gráfico & Digital: Identidad corporativa y RRSS</p>
+                </div>
+                <!-- Ibercóndor -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white">Ibercóndor</h3>
+                    <p class="text-slate-500 text-xs font-bold">2017 - 2018</p>
+                    <p class="mt-2 text-sm text-[#0f172a] dark:text-slate-300 font-medium">Especialista en Marketing y Diseño Internacional: Diseñador Digital</p>
+                </div>
+                <!-- McDonald’s -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white">McDonald’s</h3>
+                    <p class="text-slate-500 text-xs font-bold">2016 - 2022</p>
+                    <p class="mt-2 text-sm text-[#0f172a] dark:text-slate-300 font-medium">Team Experience Lead: Asistente de experiencia de marca</p>
+                </div>
+            </div>
+        </section>
+
+<!-- 3. EDUCACIÓN: Información sobre mi Formación académica y Formación complementaria -->
+        <section id="content-edu" class="about-content hidden animate-fade-in">
+            <h2 class="text-xl font-bold mb-8 flex items-center gap-3 text-secondary">
+                <span class="material-symbols-outlined text-3xl">school</span> Educación
+            </h2>
+            
+            <div class="border-l border-slate-200 dark:border-white/10 ml-3 space-y-10 pb-10">
+                
+                <!-- --- FORMACIÓN ACADÉMICA --- -->
+                <!-- UOC -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-primary ring-4 ring-background-light dark:ring-background-dark shadow-[0_0_15px_rgba(37,106,244,0.5)]"></div>
+                    <h3 class="text-lg font-bold dark:text-white leading-tight">Grado en Diseño y Creación Digitales</h3>
+                    <p class="text-primary text-xs font-bold mt-1">Universitat Oberta de Catalunya · 2020 – 2024</p>
+                </div>
+
+                <!-- Esteve Terradas -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white leading-tight">Diseño y Edición de Publicaciones Impresas y Multimedia</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs font-bold mt-1">INS Esteve Terradas i Illa · 2018 – 2020</p>
+                </div>
+
+                <!-- Marianao -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white leading-tight">Formación Superior en Comercio y Marketing</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs font-bold mt-1">INS Marianao · 2016 – 2018</p>
+                </div>
+
+                <!-- --- FORMACIÓN COMPLEMENTARIA --- -->
+                <!-- Divisor Visual -->
+                <div class="relative pl-10 pt-4">
+                    <div class="h-px w-full bg-slate-200 dark:bg-white/10 mb-8"></div>
+                    <h4 class="text-xs font-black uppercase tracking-[0.2em] text-slate-700 dark:text-slate-400 mb-6 -ml-4">Formación complementaria</h4>
+                </div>
+
+                <!-- Curso Figma Avanzado -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white">Curso de Figma avanzado</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs font-bold mt-1">Domestika · 2025</p>
+                </div>
+
+                <!-- Curso Creatividad -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white">Curso de Creatividad</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs font-bold mt-1">Programación Neurolingüística de Barcelona · 2025</p>
+                </div>
+
+                <!-- Cursos Comunicación -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white">Cursos de Comunicación I y II</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs font-bold mt-1">Programación Neurolingüística de Barcelona · 2024 – 2025</p>
+                </div>
+
+                <!-- Curso Front-End -->
+                <div class="relative pl-10">
+                    <div class="absolute -left-[6.5px] top-2 h-3 w-3 rounded-full bg-slate-400 ring-4 ring-background-light dark:ring-background-dark"></div>
+                    <h3 class="text-lg font-bold dark:text-white">Curso de Front-End Web Developer</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-xs font-bold mt-1">Udemy · 2019</p>
+                </div>
+
+            </div>
+        </section>
+
+<!-- 4. HABILIDADES: Información sobre mi Formación académica y Formación complementaria -->
+<section id="content-hab" class="about-content hidden animate-fade-in">
+    <h2 class="text-xl font-bold mb-8 flex items-center gap-3 text-secondary">
+        <span class="material-symbols-outlined text-3xl">bolt</span> Habilidades
+    </h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+        <!-- Adobe Suite (Mantenidas + Añadidas) -->
+        <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5 shadow-sm">
+            <h3 class="font-bold mb-5 flex items-center gap-2 text-primary text-base">
+                <span class="material-symbols-outlined">palette</span> Adobe Suite
+            </h3>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">image</span> Adobe Photoshop
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">auto_stories</span> Adobe InDesign
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">brush</span> Adobe Illustrator
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">photo_camera</span> Adobe Lightroom
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">animation</span> Adobe After Effects
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">video_settings</span> Adobe Premiere
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">flare</span> Adobe Firefly
+                </li>
+            </ul>
+        </div>
+
+        <!-- Edición de vídeo (Mantenidas + Añadidas) -->
+        <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5 shadow-sm">
+            <h3 class="font-bold mb-5 flex items-center gap-2 text-primary text-base">
+                <span class="material-symbols-outlined">movie</span> Edición de vídeo
+            </h3>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">content_cut</span> CapCut
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">magic_button</span> Canva
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">movie_filter</span> Final Cut Pro
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">video_settings</span> Adobe Premiere
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">animation</span> Adobe After Effects
+                </li>
+            </ul>
+        </div>
+
+        <!-- Desarrollo Front-End (Mantenidas + Añadida Google Apps Script) -->
+        <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5 shadow-sm">
+            <h3 class="font-bold mb-5 flex items-center gap-2 text-primary text-base">
+                <span class="material-symbols-outlined">code</span> Desarrollo Front-End
+            </h3>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">html</span> HTML5 & CSS3
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">terminal</span> JavaScript básico
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">smart_toy</span> Python básico
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">web</span> WordPress
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">description</span> Google Apps Script
+                </li>
+            </ul>
+        </div>
+
+        <!-- Gestión y Sistemas (Mantenidas + Añadida GCIP) -->
+        <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5 shadow-sm">
+            <h3 class="font-bold mb-5 flex items-center gap-2 text-primary text-base">
+                <span class="material-symbols-outlined">folder_shared</span> Gestión & Sistemas
+            </h3>
+            <ul class="space-y-3">
+                <li class="flex items-center gap-3 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">account_tree</span> Jira, Trello, Confluence, GCIP
+                </li>
+                <li class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">desktop_windows</span> MacOS & Windows
+                </li>
+            </ul>
+        </div>
+
+        <!-- Diseño UX/UI (Actualizado según tu lista específica) -->
+        <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5 shadow-sm sm:col-span-2">
+            <h3 class="font-bold mb-5 flex items-center gap-2 text-primary text-base">
+                <span class="material-symbols-outlined">design_services</span> Diseño UX/UI
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-y-3 gap-x-4">
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">draw</span> Figma
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">view_quilt</span> Framer
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">category</span> Relume
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">favorite</span> Lovable
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">near_me</span> Cursor
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">frame_inspect</span> Google Stitch
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">movie_edit</span> Runway
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">devices</span> Responsive Design
+                </span>
+            </div>
+        </div>
+
+        <!-- IA Aplicada al diseño (Actualizado según tu lista específica) -->
+        <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5 shadow-sm sm:col-span-2">
+            <h3 class="font-bold mb-5 flex items-center gap-2 text-primary text-base">
+                <span class="material-symbols-outlined">auto_awesome</span> IA aplicada al diseño
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-3 gap-x-4">
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">flare</span> Adobe Firefly
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">photo_filter</span> MidJourney
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">draw</span> DALL·E
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">forum</span> ChatGPT
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">auto_awesome</span> Google Gemini
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">movie_edit</span> Runway
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">magic_button</span> Canva AI
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">psychology</span> Stable Diffusion
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">integration_instructions</span> Relume AI
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">video_camera_back</span> Vidu
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">psychology_alt</span> Grok
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-[10px] italic">
+                    ...entre otros
+                </span>
+            </div>
+        </div>
+
+        <!-- Microsoft Office (Actualizado según tu lista específica) -->
+        <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5 shadow-sm sm:col-span-2">
+            <h3 class="font-bold mb-5 flex items-center gap-2 text-primary text-base">
+                <span class="material-symbols-outlined">description</span> Microsoft Office
+            </h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-y-4 gap-x-2">
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">groups</span> Teams
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">article</span> Word
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">table_chart</span> Excel
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">assignment</span> Forms
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">present_to_all</span> PowerPoint
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">event_available</span> Planner
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">mail</span> Outlook
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">cloud</span> SharePoint
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">checklist</span> To Do
+                </span>
+                <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                    <span class="material-symbols-outlined text-primary text-sm">auto_awesome</span> Copilot
+                </span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- 5. DATOS DE INTERÉS: Datos que aportan información extra -->
+        <section id="content-dat" class="about-content hidden animate-fade-in">
+            <h2 class="text-xl font-bold mb-8 flex items-center gap-3 text-secondary">
+                <span class="material-symbols-outlined text-3xl">info</span> Datos de interés
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Idiomas -->
+                <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5">
+                    <h3 class="font-bold mb-6 flex items-center gap-2 text-primary text-base">
+                        <span class="material-symbols-outlined">translate</span> Idiomas
+                    </h3>
+                    <div class="space-y-4">
+                        <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 font-medium text-xs">
+                            <span class="material-symbols-outlined text-primary text-sm">done_all</span> Español (Nativo)
+                        </span>
+                        <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 font-medium text-xs">
+                            <span class="material-symbols-outlined text-primary text-sm">done_all</span> Catalán (Nativo)
+                        </span>
+                        <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 font-medium text-xs">
+                            <span class="material-symbols-outlined text-primary text-sm">done</span> Inglés (B1)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Otros datos -->
+                <div class="p-6 rounded-3xl bg-slate-100 dark:bg-[#101622] border border-black/5 dark:border-white/5">
+                    <h3 class="font-bold mb-6 flex items-center gap-2 text-primary text-base">
+                        <span class="material-symbols-outlined">contact_page</span> Otros datos
+                    </h3>
+                    <div class="space-y-3">
+                        <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                            <span class="material-symbols-outlined text-primary text-sm">schedule</span> Disponibilidad completa
+                        </span>
+                        <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                            <span class="material-symbols-outlined text-primary text-sm">flight_takeoff</span> Disponibilidad para viajar
+                        </span>
+                        <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                            <span class="material-symbols-outlined text-primary text-sm">home_pin</span> Disponibilidad para reubicarme
+                        </span>
+                        <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                            <span class="material-symbols-outlined text-primary text-sm">directions_car</span> Vehículo propio
+                        </span>
+                        <span class="flex items-center gap-2 text-[#0f172a] dark:text-slate-300 text-xs font-medium">
+                            <span class="material-symbols-outlined text-primary text-sm">badge</span> Carnet A y B
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
