@@ -6,20 +6,31 @@
     <div class="flex flex-col gap-0 w-full max-w-7xl mx-auto">
         <img data-nv="nv-contexto" src="" class="w-full h-auto">
         <img data-nv="nv-logo" src="" class="w-full h-auto">
+        <img data-nv="nv-color" src="" class="w-full h-auto">
+        <img data-nv="nv-contraste" src="" class="w-full h-auto">
     </div>
 </div>
 
 <script>
     const nvImageMap = {
         "nv-portada": "portada_multi.gif",
-        "nv-contexto": { dark: "contexto_dark.webp", light: "contexto_light.webp", mobDark: "contexto_mobDark.webp", mobLight: "contexto_mobLight.webp" },
-        "nv-logo": { dark: "logo-simbolo_dark.webp", light: "logo-simbolo_light.webp", mobDark: "logo-simbolo_mobDark.webp", mobLight: "logo-simbolo_mobLight.webp" }
+        "nv-contexto": { 
+            dark: "contexto_dark.webp", light: "contexto_light.webp", 
+            mobDark: "contexto_mobDark.webp", mobLight: "contexto_mobLight.webp" 
+        },
+        "nv-logo": { 
+            dark: "logo-simbolo_dark.webp", light: "logo-simbolo_light.webp", 
+            mobDark: "logo-simbolo_mobDark.webp", mobLight: "logo-simbolo_mobLight.webp" 
+        },
+        "nv-color": "color_multi.webp",
+        "nv-contraste": "contraste1_dark.webp" // Ejemplo
     };
 
     window.updateNvImages = function() {
         const isDark = document.documentElement.classList.contains('dark');
         const isMobile = window.innerWidth < 768;
         const subfolder = isMobile ? "mobile" : "desktop";
+        const BASE_URL = "/portfolio";
 
         document.querySelectorAll('img[data-nv]').forEach(img => {
             const key = img.getAttribute('data-nv');
@@ -35,7 +46,7 @@
                     filename = isDark ? data.dark : data.light;
                 }
             }
-            img.src = `/assets/img/novateca/${subfolder}/${filename}`;
+            img.src = `${BASE_URL}/assets/img/novateca/${subfolder}/${filename}`;
         });
     }
     window.initNvNav = () => window.updateNvImages();
