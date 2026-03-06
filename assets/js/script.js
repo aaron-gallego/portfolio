@@ -1,4 +1,7 @@
-// 1. NAVEGACIÓN SPA
+// 0. CONFIGURACIÓN DE RUTA PARA GITHUB PAGES
+const BASE_URL = "/portfolio"; 
+
+// 1. LÓGICA DE NAVEGACIÓN SPA
 function showView(viewName, skipScroll = false) {
     const homeWrapper = document.getElementById('home-view-wrapper');
     const workView = document.getElementById('view-work');
@@ -9,6 +12,7 @@ function showView(viewName, skipScroll = false) {
     const active = ['bg-[#FFAE2C]', 'text-white', 'shadow-lg', 'shadow-[#FFAE2C]/30', 'border-transparent'];
     const inactive = ['border-black/10', 'dark:border-white/20', 'bg-slate-300/50', 'dark:bg-white/10', 'backdrop-blur-md', 'text-slate-700', 'dark:text-white'];
 
+    // Ocultar todos los proyectos
     document.querySelectorAll('[id*="view-project"]').forEach(v => v.classList.add('hidden'));
 
     if (viewName.toLowerCase().startsWith('project')) {
@@ -17,7 +21,7 @@ function showView(viewName, skipScroll = false) {
         if (targetProject) targetProject.classList.remove('hidden');
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
-        // Inicializar navs de proyectos si existen
+        // Inicializar vistas específicas si existen
         setTimeout(() => {
             if (window.initTgNav) window.initTgNav();
             if (window.initNvNav) window.initNvNav();
@@ -42,29 +46,31 @@ function showView(viewName, skipScroll = false) {
     }
 }
 
-// 2. BASE DE DATOS PROYECTOS
+// 2. BASE DE DATOS DE PROYECTOS (Rutas Corregidas)
 const projects = [
     { 
         title: "Diseño y Desarrollo de la App testGO", 
         category: "UX/UI", 
         tags: ["Diseño UX/UI", "Figma"], 
-        img: "/assets/img/testgo/desktop/sec-portada_multi.webp", 
+        img: BASE_URL + "/assets/img/testgo/desktop/sec-portada_multi.webp", 
         view: "project-testGO" 
     },
     {
         title: "Identidad Visual de Novateca",
         category: "Graphic Design",
         tags: ["Diseño Gráfico", "Branding"],
-        img: "/assets/img/novateca/desktop/portada_multi.gif",
+        img: BASE_URL + "/assets/img/novateca/desktop/portada_multi.gif",
         view: "project-Novateca"
     }
 ];
 
+// 3. RENDERIZADO DE PROYECTOS
 function renderProjects(filter = 'all') {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
     grid.innerHTML = '';
     const filtered = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+    
     filtered.forEach(p => {
         const card = document.createElement('div');
         card.className = "project-card-animate group cursor-pointer relative aspect-[4/5] overflow-hidden rounded-3xl bg-slate-900 shadow-2xl transition-all hover:-translate-y-2";
@@ -80,7 +86,7 @@ function renderProjects(filter = 'all') {
     });
 }
 
-// 3. THEME MANAGER
+// 4. THEME & INITIALIZATION
 function applyTheme(isDark) {
     document.documentElement.classList.toggle('dark', isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
@@ -88,12 +94,15 @@ function applyTheme(isDark) {
     if (typeof updateNvImages === "function") updateNvImages();
 }
 
-// 4. INIT
+function goToProjects() {
+    showView('work');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'dark';
     applyTheme(savedTheme === 'dark');
     renderProjects('all');
-    
+
     const themeSwitch = document.getElementById('theme-switch');
     if(themeSwitch) {
         themeSwitch.checked = (savedTheme === 'dark');
@@ -101,11 +110,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Scroll Events
+// Scroll Listener (Header & Back Button)
 let lastScrollY = window.scrollY;
 window.addEventListener('scroll', () => {
     const header = document.getElementById('header-wrapper');
     const backBtn = document.getElementById('btn-back-to-work');
+    const isProjectView = document.getElementById('home-view-wrapper').classList.contains('hidden');
+
     if (window.scrollY > lastScrollY && window.scrollY > 100) {
         header.style.transform = 'translateY(-110%)';
         document.body.classList.add('header-hidden');
@@ -113,5 +124,11 @@ window.addEventListener('scroll', () => {
         header.style.transform = 'translateY(0)';
         document.body.classList.remove('header-hidden');
     }
+
+    if (isProjectView && window.scrollY > 300) {
+        backBtn.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
+    } else {
+        backBtn.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
+    }
     lastScrollY = window.scrollY;
-});
+}, { passive: true });
